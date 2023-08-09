@@ -1,4 +1,17 @@
 * {
   box-sizing: border-box;
-  background: red;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input {
+  width: 30%;
+}
+
+.form button {
+  width: 50px;
 }
