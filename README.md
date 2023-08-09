@@ -65,6 +65,7 @@
 <!-- Live Demo -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+
 <a href="https://izebiafe.github.io/awesome-book"> Coming soon</a>
 
 <!-- GETTING STARTED -->
@@ -75,13 +76,14 @@
 
 To get get a local copy up and running, you can follow these simple steps:
 
-
 ### Install
+
 Clone the repository to your local machine using the following command:
 
 ```sh
   git clone git@github.com/izebiafe/Awesome-book
 ```
+
 Navigate to the project directory:
 
 ```sh
@@ -89,6 +91,7 @@ Navigate to the project directory:
 ```
 
 Open the index.html file in your web browser to view the project:
+
 ```sh
  open index.html
 ```
@@ -96,8 +99,6 @@ Open the index.html file in your web browser to view the project:
 You can now make changes to the project as desired and push them back to the repository using Git.
 
 That's it! With these simple steps, you should be able to get up and running with the Book list project in no time. Happy coding!
-
-
 
 ### Usage
 
@@ -108,7 +109,6 @@ To use this project, simply visit the following link: https://github.com/izebiaf
 - **Use the provided form to add books to the list.**
 
 - **To remove a book, click the "Remove" button next to the book entry.**
-
 
 <!-- ### Run tests
 
@@ -121,7 +121,6 @@ Example command:
   bin/rails test test/models/article_test.rb
 ```
 --->
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,9 +183,9 @@ Feel free to check the [issues page](../../issues/).
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
-  
+
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
