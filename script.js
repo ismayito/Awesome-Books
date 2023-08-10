@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -29,7 +27,7 @@ class BookCollection {
   }
 
   loadBooksFromLocalStorage() {
-    const storedBooks = this.localStorage.getItem('books');
+    const storedBooks = localStorage.getItem('books');
     return storedBooks ? JSON.parse(storedBooks) : [];
   }
 
@@ -55,8 +53,8 @@ function displayBooks() {
     <button onclick="removeBook(${index})">Remove</button>
   </div>
 `;
-    bookList.appendChild(bookElement);
-  });
+bookList.appendChild(bookElement);
+});
 }
 // Add a new book to the collection
 function addBook() {
@@ -69,14 +67,4 @@ function addBook() {
     bookCollection.addBook(title, author);
     titleInput.value = '';
     authorInput.value = '';
-
-    displayBooks();
-  }
-}
-
-// Remove a book from the collection
-function removeBook(index) {
-  bookCollection.removeBook(index);
-  displayBooks();
-}
-displayBooks();
+    
