@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line max-classes-per-file
 class Book {
@@ -30,7 +29,7 @@ class BookCollection {
   }
 
   loadBooksFromLocalStorage() {
-    const storedBooks = localStorage.getItem('books');
+    const storedBooks = this.localStorage.getItem('books');
     return storedBooks ? JSON.parse(storedBooks) : [];
   }
 
