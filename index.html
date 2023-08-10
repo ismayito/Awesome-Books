@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Awesome-Books</title>
-  </head>
-  <body>
-    <h1>Awesome Books</h1>
-    <div id="books"></div>
-    <form class="form" id="form-id">
-      <input type="text" id="title" placeholder="Title" />
-      <input type="text" id="author" placeholder="Author" />
-      <button type="submit" onClick="addBook(event)">Add</button>
-    </form>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- link to css  -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="heading">Awesome Books</h1>
 
-    <script src="index.js"></script>
-  </body>
+  <div id="bookList"></div>
+
+  <div class="bookInput">
+
+    <h1>Add a new Book</h1>
+    <input type="text" id="title" placeholder="Title" class="p-2 rounded-1">
+    <input type="text" id="author" placeholder="Author" class="p-2 rounded-1">
+    <div class="button">
+      <button onclick="addBook()" type="button" >Add Book</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
 </html>

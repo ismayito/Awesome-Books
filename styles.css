@@ -1,17 +1,87 @@
 * {
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.form {
+.heading {
+  text-align: center;
+  margin: 0.7em;
+}
+
+#bookList {
+  border: 2px solid black;
+  width: 50%;
+  margin: auto;
+}
+
+.book {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 13px;
+}
+
+span {
+  font-size: 18px;
+}
+
+.book:nth-child(even) {
+  background-color: #c09090;
+}
+
+.book:nth-child(odd) {
+  background-color: #f1e1e1;
+}
+
+hr {
+  width: 100px;
+  height: 3px;
+  background-color: #000;
+  border: none;
+  margin: 4em 0 auto;
+}
+
+.bookInput {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
+  width: 20%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
-.form input {
-  width: 30%;
+input {
+  position: relative;
+  width: 100%;
+  padding: 10px;
 }
 
-.form button {
-  width: 50px;
+input::placeholder {
+  transition: transform 0.3s ease-in-out;
+}
+
+input:hover::placeholder {
+  transform: translateX(10px);
+}
+
+button {
+  padding: 10px;
+  background-color: #923131;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.04);
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
