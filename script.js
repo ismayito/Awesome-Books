@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author) {
@@ -25,11 +24,11 @@ class BookCollection {
 
   // Save updated collection to localStorage
   saveBooksToLocalStorage() {
-    localStorage.setItem('books', JSON.stringify(this.books));
+    localStorage.setItem("books", JSON.stringify(this.books));
   }
 
   loadBooksFromLocalStorage() {
-    const storedBooks = this.localStorage.getItem('books');
+    const storedBooks = localStorage.getItem("books");
     return storedBooks ? JSON.parse(storedBooks) : [];
   }
 
@@ -42,11 +41,11 @@ const bookCollection = new BookCollection();
 
 // Display books in the collection
 function displayBooks() {
-  const bookList = document.getElementById('bookList');
-  bookList.innerHTML = '';
+  const bookList = document.getElementById("bookList");
+  bookList.innerHTML = "";
   bookCollection.getBooks().forEach((book, index) => {
-    const bookElement = document.createElement('div');
-    bookElement.classList.add('book');
+    const bookElement = document.createElement("div");
+    bookElement.classList.add("book");
     bookElement.innerHTML = `      <div class="book-info">
     <span>"${book.title}"</span>
     <span> by ${book.author}</span>
@@ -60,15 +59,15 @@ function displayBooks() {
 }
 // Add a new book to the collection
 function addBook() {
-  const titleInput = document.getElementById('title');
-  const authorInput = document.getElementById('author');
+  const titleInput = document.getElementById("title");
+  const authorInput = document.getElementById("author");
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
 
   if (title && author) {
     bookCollection.addBook(title, author);
-    titleInput.value = '';
-    authorInput.value = '';
+    titleInput.value = "";
+    authorInput.value = "";
 
     displayBooks();
   }
