@@ -31,10 +31,17 @@
   padding: 0 4px;
 }
 
+.active-link a {
+  color: #fff;
+  background: blue;
+  padding: 4px;
+}
+
 .nav-links li a {
   text-decoration: none;
   color: #000;
 }
+
 .container {
   max-width: 1000px;
   margin: auto;
@@ -164,12 +171,6 @@ button:hover {
   margin-top: 100px;
   margin-left: 4px;
   margin-right: 4px;
-}
-
-.active-link a {
-  color: #fff;
-  background: blue;
-  padding: 4px;
 }
 
 #date {
