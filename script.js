@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
-const form = document.querySelector('.form');
-const msg = document.querySelector('.msg');
-const bookList = document.querySelector('.book-list');
+const form = document.querySelector(".form");
+const msg = document.querySelector(".msg");
+const bookList = document.querySelector(".book-list");
 
 function Books(id, title, author) {
   this.id = id;
@@ -12,7 +12,7 @@ function Books(id, title, author) {
 class UI {
   // Create Display book on the UI
   displayBooks(newBook) {
-    const li = document.createElement('li');
+    const li = document.createElement("li");
     li.id = newBook.id;
     li.innerHTML = `
     <p>"${newBook.title}" by ${newBook.author}</p>
@@ -24,10 +24,10 @@ class UI {
   // Display messages to the UI
   showMessage(message, isSuccess) {
     msg.innerText = message;
-    this.showMessage = msg.classList.add(isSuccess ? 'success' : 'error');
+    this.showMessage = msg.classList.add(isSuccess ? "success" : "error");
     setTimeout(() => {
-      this.showMessage = msg.classList.remove('success', 'error');
-      msg.innerText = '';
+      this.showMessage = msg.classList.remove("success", "error");
+      msg.innerText = "";
     }, 3000);
   }
 }
@@ -35,10 +35,10 @@ class UI {
 class Store {
   static getBooks() {
     let books;
-    if (localStorage.getItem('books') === null) {
+    if (localStorage.getItem("books") === null) {
       books = [];
     } else {
-      books = JSON.parse(localStorage.getItem('books'));
+      books = JSON.parse(localStorage.getItem("books"));
     }
 
     return books;
@@ -47,7 +47,7 @@ class Store {
   static addToLocalStorage(newBook) {
     const books = Store.getBooks();
     books.push(newBook);
-    localStorage.setItem('books', JSON.stringify(books));
+    localStorage.setItem("books", JSON.stringify(books));
   }
 
   static displayFromLocalStorage() {
@@ -60,18 +60,14 @@ class Store {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  Store.displayFromLocalStorage();
-});
-
 // Add books
-form.addEventListener('submit', (e) => {
-  const title = document.querySelector('#title').value;
-  const author = document.querySelector('#author').value;
+form.addEventListener("submit", (e) => {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
   const id = Math.random() * 2 + title; // Updated id calculation
   // check for any errors
-  if (title.trim() === '' || author.trim() === '') {
-    const errorMessage = 'All fields are required';
+  if (title.trim() === "" || author.trim() === "") {
+    const errorMessage = "All fields are required";
     const ui = new UI();
     ui.showMessage(errorMessage, false);
   } else {
@@ -86,32 +82,93 @@ form.addEventListener('submit', (e) => {
     // Save books data to localStorage
     Store.addToLocalStorage(newBook);
 
-    const successMessage = 'Book added successfully';
+    const successMessage = "Book added successfully";
     ui.showMessage(successMessage, true);
 
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
   }
   // prevent default submit
   e.preventDefault();
 });
 
 // Remove books
-bookList.addEventListener('click', (e) => {
-  if (e.target.id === 'remove') {
+bookList.addEventListener("click", (e) => {
+  if (e.target.id === "remove") {
     const books = Store.getBooks();
     const liParent = e.target.parentElement;
 
-    const filteredBooks = books.filter(
-      (book) => book.id !== liParent.id,
-    );
+    const filteredBooks = books.filter((book) => book.id !== liParent.id);
     liParent.remove();
-    localStorage.setItem('books', JSON.stringify(filteredBooks));
+    localStorage.setItem("books", JSON.stringify(filteredBooks));
 
-    const successMessage = 'Book removed successfully';
+    const successMessage = "Book removed successfully";
     const ui = new UI();
     ui.showMessage(successMessage, true);
   }
   // prevent default click behavior
   e.preventDefault();
+});
+
+const bookPage = document.getElementById("book-page");
+const addBookPage = document.getElementById("add-book-page");
+const contactPage = document.getElementById("info");
+
+const listLinks = document.getElementById("list");
+const addLinks = document.getElementById("add");
+const contactLinks = document.getElementById("contact");
+const timeStamp = document.getElementById("date");
+
+// getting current time
+const date = new Date();
+const monthName = date.toLocaleString("default", { month: "long" });
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
+const day = date.getDate();
+const hours = date.getHours({ hour12: true });
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+const currentTime = `${hours}: ${minutes}:${seconds}`;
+
+const displayTime = `${month} ${monthName} ${day} ${year} , ${currentTime}`;
+
+document.addEventListener("DOMContentLoaded", () => {
+  bookPage.style.display = "block";
+  addBookPage.style.display = "none";
+  contactPage.style.display = "none";
+  timeStamp.innerHTML = `${displayTime}`;
+  Store.displayFromLocalStorage();
+});
+
+// display list page
+listLinks.addEventListener("click", () => {
+  bookPage.style.display = "block";
+  addBookPage.style.display = "none";
+  contactPage.style.display = "none";
+
+  listLinks.classList.add("active-link");
+  addLinks.classList.remove("active-link");
+  contactLinks.classList.remove("active-link");
+});
+
+//display form to add books page
+addLinks.addEventListener("click", () => {
+  bookPage.style.display = "none";
+  addBookPage.style.display = "block";
+  contactPage.style.display = "none";
+
+  listLinks.classList.remove("active-link");
+  addLinks.classList.add("active-link");
+  contactLinks.classList.remove("active-link");
+});
+
+//display form to add books page
+contactLinks.addEventListener("click", () => {
+  bookPage.style.display = "none";
+  addBookPage.style.display = "none";
+  contactPage.style.display = "block";
+
+  listLinks.classList.remove("active-link");
+  addLinks.classList.remove("active-link");
+  contactLinks.classList.add("active-link");
 });

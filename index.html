@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Awesome Books</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Awesome Books</title>
-</head>
+  <body>
+    <nav class="nav">
+      <p>Awesome books</p>
+      <ul class="nav-links">
+        <li class="link" id="list"><a href="#">List</a></li>
+        <span></span>
+        <li class="link" id="add"><a href="#">Add new</a></li>
+        <span></span>
+        <li class="link" id="contact"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <p id="date"></p>
 
-<body>
-  <section class="container">
-    <h1>All Awesome Book</h1>
-    <p class="msg"></p>
-    <ul class="book-list"></ul>
+    <section class="container">
+      <section id="book-page">
+        <h1>All Awesome Book</h1>
+        <p class="msg"></p>
+        <ul class="book-list"></ul>
+      </section>
+      <form class="form" id="add-book-page">
+        <h2>Add a new Book</h2>
+        <input type="text" id="title" placeholder="Title" />
+        <input type="text" id="author" placeholder="Author" />
+        <button type="submit">Add</button>
+      </form>
 
-    <form class="form">
-      <h2>Add a new Book</h2>
-      <input type="text" id="title" placeholder="Title" />
-      <input type="text" id="author" placeholder="Author" />
-      <button type="submit">Add</button>
-    </form>
-  </section>
+      <section class="contact-info" id="info">
+        <h3 class="info-heading">Contact information</h3>
+        <div class="contact-intro">
+          <p class="info-intro">
+            Do you have any questions or you just want to say &quot;hello &quot;
+            ?
+            <br />
+            You can reach out to us
+          </p>
+          <ul class="contact-list">
+            <li class="list-item">Our email:ismayito1@gmail.com</li>
+            <li class="list-item">Our phone number: +256759121505</li>
+            <li class="list-item">
+              Our address: street home: Jumayi, 22, kampala, Uganda
+            </li>
+          </ul>
+        </div>
+      </section>
+    </section>
 
-  <script src="./script.js"></script>
-</body>
+    <section class="footer">
+      <p>CopyRight &copy;ismayito1 &amp; &copy; Izebiafe</p>
+    </section>
 
+    <script src="./script.js"></script>
+  </body>
 </html>
