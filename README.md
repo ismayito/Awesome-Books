@@ -62,12 +62,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Live Demo -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-<a href="https://izebiafe.github.io/awesome-book"> Coming soon</a>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -186,6 +180,6 @@ Feel free to check the [issues page](../../issues/).
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
