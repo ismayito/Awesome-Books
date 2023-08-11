@@ -60,10 +60,6 @@ class Store {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  Store.displayFromLocalStorage();
-});
-
 // Add books
 form.addEventListener('submit', (e) => {
   const title = document.querySelector('#title').value;
@@ -102,9 +98,7 @@ bookList.addEventListener('click', (e) => {
     const books = Store.getBooks();
     const liParent = e.target.parentElement;
 
-    const filteredBooks = books.filter(
-      (book) => book.id !== liParent.id,
-    );
+    const filteredBooks = books.filter((book) => book.id !== liParent.id);
     liParent.remove();
     localStorage.setItem('books', JSON.stringify(filteredBooks));
 
@@ -114,4 +108,67 @@ bookList.addEventListener('click', (e) => {
   }
   // prevent default click behavior
   e.preventDefault();
+});
+
+const bookPage = document.getElementById('book-page');
+const addBookPage = document.getElementById('add-book-page');
+const contactPage = document.getElementById('info');
+
+const listLinks = document.getElementById('list');
+const addLinks = document.getElementById('add');
+const contactLinks = document.getElementById('contact');
+const timeStamp = document.getElementById('date');
+
+// getting current time
+const date = new Date();
+const monthName = date.toLocaleString('default', { month: 'long' });
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
+const day = date.getDate();
+const hours = date.getHours({ hour12: true });
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+const currentTime = `${hours}: ${minutes}:${seconds}`;
+
+const displayTime = `${month} ${monthName} ${day} ${year} , ${currentTime}`;
+
+document.addEventListener('DOMContentLoaded', () => {
+  bookPage.style.display = 'block';
+  addBookPage.style.display = 'none';
+  contactPage.style.display = 'none';
+  timeStamp.innerHTML = `${displayTime}`;
+  Store.displayFromLocalStorage();
+});
+
+// display list page
+listLinks.addEventListener('click', () => {
+  bookPage.style.display = 'block';
+  addBookPage.style.display = 'none';
+  contactPage.style.display = 'none';
+
+  listLinks.classList.add('active-link');
+  addLinks.classList.remove('active-link');
+  contactLinks.classList.remove('active-link');
+});
+
+// display form to add books page
+addLinks.addEventListener('click', () => {
+  bookPage.style.display = 'none';
+  addBookPage.style.display = 'block';
+  contactPage.style.display = 'none';
+
+  listLinks.classList.remove('active-link');
+  addLinks.classList.add('active-link');
+  contactLinks.classList.remove('active-link');
+});
+
+// display form to add books page
+contactLinks.addEventListener('click', () => {
+  bookPage.style.display = 'none';
+  addBookPage.style.display = 'none';
+  contactPage.style.display = 'block';
+
+  listLinks.classList.remove('active-link');
+  addLinks.classList.remove('active-link');
+  contactLinks.classList.add('active-link');
 });

@@ -1,9 +1,45 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav {
+  display: flex;
+  border: 4px solid gray;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  margin: 4px;
+}
+
+.nav span {
+  border: 2px solid gray;
+  height: 20px;
+  margin: 0 4px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  border: none;
+}
+
+.nav-links li {
+  background: none;
+  padding: 0 4px;
+}
+
+.active-link a {
+  color: #fff;
+  background: blue;
+  padding: 4px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
 }
 
 .container {
@@ -40,14 +76,14 @@
   font-weight: bolder;
 }
 
-ul {
+.book-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
   border: 3px solid #000;
 }
 
-ul li {
+.book-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,7 +91,7 @@ ul li {
   font-weight: bolder;
 }
 
-ul li:nth-child(odd) {
+.book-list li:nth-child(odd) {
   background: #ccc;
 }
 
@@ -109,4 +145,35 @@ button:hover {
 .form button {
   float: right;
   background: #09ba09;
+}
+
+.contact-intro {
+  align-items: center;
+}
+
+.info-intro {
+  margin: 36px 0;
+}
+
+.contact-list {
+  margin-left: 48px;
+}
+
+.info-heading {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 24px;
+}
+
+.footer {
+  border: 4px solid gray;
+  padding: 10px;
+  margin-top: 100px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+#date {
+  text-align: right;
+  margin-right: 4px;
 }
